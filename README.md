@@ -63,6 +63,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any inquiries, please contact choubey.anubhav253@gmail.com.
-# Virtual_Assistant
-# Virtual_Assistant
+For any inquiries, please contact prashantsharma4849@gmail.com.
