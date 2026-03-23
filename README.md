@@ -19,7 +19,7 @@ A gesture-based controller using OpenCV, Mediapipe, numpy, and PyCaw libraries t
 - **5 Fingers (hold for 2 seconds)**: Exit the Application.
 
 ## Demo 
-![Gesture Controller](./demo/demo.mp4) https://github.com/prashant4840/Virtual_Assistant/blob/main/demo/demo.mp4
+https://github.com/prashant4840/Virtual_Assistant/blob/main/demo/demo.mp4
 
 ## Installation
 
