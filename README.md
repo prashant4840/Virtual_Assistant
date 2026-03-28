@@ -25,7 +25,7 @@ https://github.com/prashant4840/Virtual_Assistant/blob/main/demo/demo.mp4
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/prashant4840/Virtual_Assistant.git
+    git clone https://github.com/prashant4840/Virtual_Assistant.git (will update it soon)
     ```
 2. Navigate to the project directory:
     ```bash
