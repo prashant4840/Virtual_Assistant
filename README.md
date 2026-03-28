@@ -19,13 +19,13 @@ A gesture-based controller using OpenCV, Mediapipe, numpy, and PyCaw libraries t
 - **5 Fingers (hold for 2 seconds)**: Exit the Application.
 
 ## Demo 
-https://github.com/prashant4840/Virtual_Assistant/blob/main/demo/demo.mp4
+https://github.com/prashant4840/Virtual_Assistant/blob/main/demo/demo.mp4 (will update it soon)
 
 ## Installation
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/prashant4840/Virtual_Assistant.git (will update it soon)
+    git clone https://github.com/prashant4840/Virtual_Assistant.git 
     ```
 2. Navigate to the project directory:
     ```bash
