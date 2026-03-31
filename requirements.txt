@@ -5,4 +5,5 @@ pyautogui
 numpy
 pycaw
 pynput
+PyQt5
 
