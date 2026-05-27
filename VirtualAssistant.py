@@ -5,11 +5,10 @@ import time
 import numpy as np
 import pyautogui as auto
 import screen_brightness_control as sbc
-from ctypes import cast, POINTER
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from pynput.keyboard import Key, Controller
 import time
+import platform
+import subprocess
 
 
 #Creating A Keyboard using Pynput
@@ -24,11 +23,21 @@ from FaceTracking import face_filter
 from HandTracking import HandDetector
 
 
-#Initializing IMP Vars
-devices = AudioUtilities.GetSpeakers()
-interface = devices.Activate(
-    IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-volume = cast(interface, POINTER(IAudioEndpointVolume))
+IS_WINDOWS = platform.system() == "Windows"
+if IS_WINDOWS:
+    from ctypes import cast, POINTER
+    from comtypes import CLSCTX_ALL
+    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+    devices = AudioUtilities.GetSpeakers()
+    interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+    volume = cast(interface, POINTER(IAudioEndpointVolume))
+
+
+def _set_volume(level: float):
+    if IS_WINDOWS:
+        volume.SetMasterVolumeLevelScalar(level, None)
+    else:
+        subprocess.call(["osascript", "-e", f"set volume output volume {int(level * 100)}"])
 
 def recognizeFingerJoin(hands: list[list[int]]) -> bool:
     # OPENING/CLOSING OPTIONS
@@ -86,7 +95,7 @@ def volume_changer(length, img):
     volPer = np.interp(length, [0, 120], [0, 1])
     volBar = np.interp(length, [0, 120], [300, 60])
 
-    volume.SetMasterVolumeLevelScalar(volPer, None)
+    _set_volume(volPer)
 
     transparent_rectangle(img,575, 60, 600, 300, (255, 210, 0),boundary=3)
     transparent_rectangle(img,575, int(volBar), 600, 300, (255, 210, 0))
