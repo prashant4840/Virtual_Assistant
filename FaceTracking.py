@@ -21,6 +21,8 @@ def face_filter(
     """
     To Apply Face Filter Image.
     """
+    rotation_turn1, rotation_turn2, rotation_turn3 = rotations
+
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     results = face_detection.process(image)
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
@@ -34,8 +36,6 @@ def face_filter(
             width = int(bboxC.width * iw)
             height = int(bboxC.height * ih)
 
-            rotation_turn1, rotation_turn2, rotation_turn3 = rotations
-
             center_x, center_y = int(xmin + width / 2), int(ymin + height / 2)
             radius = int(min(width, height) / 2)
             color = (255, 210, 0)
@@ -43,7 +43,8 @@ def face_filter(
             scale = radius / 90
 
             keypoints = list(detection.location_data.relative_keypoints)
-
+            if len(keypoints) < 2:
+                return image, rotation_turn1, rotation_turn2, rotation_turn3
             eyes = (keypoints[0], keypoints[1])
 
             image = transparent_circle_boundary(
@@ -118,7 +119,7 @@ def face_filter(
             rotation_turn1 += 1
             rotation_turn1 = rotation_turn1 % 24
             rotation_turn2 -= 1
-            rotation_turn2 = rotation_turn2 if rotation_turn2 > 0 else 16
+            rotation_turn2 %= 16
             rotation_turn3 += 1
             rotation_turn3 = rotation_turn3 % 20
 
@@ -210,7 +211,7 @@ def face_filter(
                 )
 
             return image, rotation_turn1, rotation_turn2, rotation_turn3
-    return None  # Return None if no detections
+    return image, rotation_turn1, rotation_turn2, rotation_turn3
 
 
 if __name__ == "__main__":
