@@ -7,6 +7,9 @@ A real-time hand-gesture virtual assistant with a JARVIS-style HUD, face overlay
 - Gesture-based mode selector (idle, gesture control, game remote, volume, brightness, exit)
 - Premium HUD UI with live telemetry, gauges, help overlay, and settings drawer
 - Persistent settings saved to `settings.json`
+- Modular gesture engine with adaptive performance tracking
+- Thread-safe FPS telemetry system
+- Optimized HUD rendering with cached grid drawing
 - Cross-platform runtime support for Windows and macOS
 
 ## Gesture Mappings
@@ -20,33 +23,32 @@ A real-time hand-gesture virtual assistant with a JARVIS-style HUD, face overlay
 | 4 fingers (hold in menu) | Brightness Control |
 | 5 fingers (hold in menu) | Exit app |
 
-<<<<<<< HEAD
-## Demo 
-https://github.com/prashant4840/Virtual_Assistant/blob/main/demo/demo.mp4 (will update it soon)
-=======
+## Demo
+
+Demo video will be updated soon.
+
 ### Pinch Controls
->>>>>>> aeaa301 (docs(readme): update architecture and setup documentation)
 
 In Volume/Brightness mode:
 - Spread thumb and index finger → increase
 - Bring thumb and index finger closer → decrease
 
-<<<<<<< HEAD
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/prashant4840/Virtual_Assistant.git 
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd Virtual_Assistant
-    ```
-3. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-=======
+## Quick Start
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/prashant4840/Virtual_Assistant.git
+cd Virtual_Assistant
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
 ## HUD Hotkeys
->>>>>>> aeaa301 (docs(readme): update architecture and setup documentation)
 
 - `H` = Help overlay
 - `S` = Settings drawer
@@ -66,6 +68,8 @@ In Volume/Brightness mode:
 ├── FaceTracking.py         # Face detection + HUD facial overlay
 ├── additional_functions.py # OpenCV overlay helpers
 ├── VirtualAssistant.py     # Legacy OpenCV entry (preserved)
+├── setup.sh                # macOS/Linux setup
+├── setup.ps1               # Windows setup
 └── requirements.txt
 ```
 
@@ -156,14 +160,22 @@ Legacy OpenCV-only UI (without premium HUD):
 - macOS: `python3 VirtualAssistant.py`
 - Windows: `python VirtualAssistant.py`
 
+## Architecture Improvements
+
+Recent upgrades include:
+- Modular mode-handler architecture
+- Adaptive FPS/performance tracking
+- Thread-safe telemetry handling
+- Gesture cooldown system
+- Smoothed pinch controls
+- Graceful shutdown flow
+- Cached HUD rendering optimization
+- Improved gesture confidence validation
+
 ## License
 
 This project is licensed under the MIT License. Add a `LICENSE` file to the repo root if you plan to publish publicly.
 
 ## Contact
 
-<<<<<<< HEAD
-For any inquiries, please contact prashantsharma4849@gmail.com
-=======
 For inquiries: `prashantsharma4849@gmail.com`
->>>>>>> aeaa301 (docs(readme): update architecture and setup documentation)
